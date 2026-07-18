@@ -1,0 +1,429 @@
+/* =========================================================
+   AI TYCOON — Base Layout Styles
+   White + Blue, clean corporate AI dashboard look
+   ========================================================= */
+
+:root {
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-primary-light: #eaf1ff;
+
+  --color-navy: #0f172a;
+  --color-navy-soft: #16213b;
+
+  --color-bg: #f4f6fb;
+  --color-surface: #ffffff;
+  --color-panel-bg: #f8faff;
+  --color-border: #e3e8f0;
+  --color-border-blue: #d6e4fb;
+
+  --color-text: #1e293b;
+  --color-text-secondary: #6b7684;
+  --color-text-faint: #98a2b3;
+
+  --radius-md: 12px;
+  --radius-sm: 8px;
+
+  --shadow-soft: 0 1px 2px rgba(16, 24, 40, 0.04);
+  --shadow-hover: 0 12px 24px rgba(37, 99, 235, 0.16);
+
+  --header-height: 72px;
+  --gap: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.5;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* =========================================================
+   Header
+   ========================================================= */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  min-height: var(--header-height);
+  padding: 12px 32px;
+  background: linear-gradient(180deg, var(--color-navy-soft), var(--color-navy));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  font-size: 1.7rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.75));
+}
+
+.logo-text {
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  text-shadow: 0 0 16px rgba(59, 130, 246, 0.45);
+}
+
+.header-stats {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+}
+
+.stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.22);
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.stat-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.stat-value {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+/* =========================================================
+   Main layout (3 columns: 20% / 60% / 20%)
+   ========================================================= */
+
+.main-layout {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--gap);
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 24px 32px;
+}
+
+/* Shared panel look */
+.panel,
+.panel-right .panel {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-panel-bg);
+  border: 1px solid var(--color-border-blue);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.panel::before,
+.panel-right .panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+}
+
+.panel:hover,
+.panel-right .panel:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.panel-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.panel-content {
+  margin-top: 16px;
+}
+
+.panel-header + .panel-content {
+  margin-top: 0;
+}
+
+/* ---- Left: 회사 정보 패널 (20%) ---- */
+
+.panel-company-info {
+  flex: 1 1 20%;
+  min-width: 220px;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.875rem;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  color: var(--color-text-secondary);
+}
+
+.info-value {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* ---- Center: 회사 내부 화면 (60%) ---- */
+
+.office-view {
+  flex: 1 1 60%;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-panel-bg);
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+  border: 1px solid var(--color-border-blue);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+}
+
+.office-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  color: var(--color-text-faint);
+}
+
+.office-placeholder-icon {
+  font-size: 5.5rem;
+  opacity: 0.6;
+}
+
+.office-placeholder-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+}
+
+.office-placeholder-subtext {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--color-text-faint);
+}
+
+/* ---- Right: 직원 패널 + 프로젝트 패널 (20%) ---- */
+
+.panel-right {
+  flex: 1 1 20%;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.panel-right .panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-action-btn {
+  border: none;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.28);
+  transition: filter 0.15s ease, transform 0.08s ease, box-shadow 0.15s ease;
+}
+
+.panel-action-btn:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.38);
+}
+
+.panel-action-btn:active {
+  transform: scale(0.92);
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+}
+
+.empty-state {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+  padding: 24px 8px;
+}
+
+/* =========================================================
+   Footer / News Ticker
+   ========================================================= */
+
+.footer {
+  background: var(--color-navy);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 12px 32px;
+}
+
+.news-ticker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 1440px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.875rem;
+}
+
+.news-ticker-icon {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  background: rgba(59, 130, 246, 0.35);
+  border: 1px solid rgba(96, 165, 250, 0.5);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (max-width: 1024px) {
+  .main-layout {
+    flex-wrap: wrap;
+  }
+
+  .panel-company-info,
+  .office-view,
+  .panel-right {
+    flex: 1 1 100%;
+  }
+
+  .office-view {
+    order: 1;
+    min-height: 360px;
+  }
+
+  .panel-company-info {
+    order: 2;
+  }
+
+  .panel-right {
+    order: 3;
+    flex-direction: row;
+  }
+
+  .panel-right .panel {
+    flex: 1 1 50%;
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding: 12px 16px;
+  }
+
+  .header-stats {
+    gap: 8px;
+  }
+
+  .stat-item {
+    padding: 6px 10px;
+  }
+
+  .main-layout {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .footer {
+    padding: 12px 16px;
+  }
+
+  .panel-right {
+    flex-direction: column;
+  }
+
+  .office-view {
+    min-height: 280px;
+  }
+}

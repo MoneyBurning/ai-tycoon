@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI TYCOON</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Firebase (v9 compat) -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script src="firebase-config.js"></script>
+</head>
+<body>
+
+  <!-- ================= Header ================= -->
+  <header class="header">
+    <div class="logo">
+      <span class="logo-icon">🤖</span>
+      <span class="logo-text">AI TYCOON</span>
+    </div>
+
+    <div class="header-stats">
+      <div class="stat-item">
+        <span class="stat-icon">💰</span>
+        <div class="stat-text">
+          <span class="stat-label">자금</span>
+          <span class="stat-value">$0</span>
+        </div>
+      </div>
+
+      <div class="stat-item">
+        <span class="stat-icon">📈</span>
+        <div class="stat-text">
+          <span class="stat-label">회사 가치</span>
+          <span class="stat-value">$0</span>
+        </div>
+      </div>
+
+      <div class="stat-item">
+        <span class="stat-icon">⭐</span>
+        <div class="stat-text">
+          <span class="stat-label">명성</span>
+          <span class="stat-value">0</span>
+        </div>
+      </div>
+
+      <div class="stat-item">
+        <span class="stat-icon">🏢</span>
+        <div class="stat-text">
+          <span class="stat-label">회사 레벨</span>
+          <span class="stat-value">Lv.1</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= Main ================= -->
+  <main class="main-layout">
+
+    <!-- 왼쪽 20% : 회사 정보 패널 -->
+    <aside class="panel panel-company-info">
+      <h2 class="panel-title">회사 정보</h2>
+      <div class="panel-content">
+        <div class="info-row">
+          <span class="info-label">회사명</span>
+          <span class="info-value">-</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">업종</span>
+          <span class="info-value">AI 스타트업</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">설립</span>
+          <span class="info-value">-</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">대표</span>
+          <span class="info-value">-</span>
+        </div>
+      </div>
+
+      <h2 class="panel-title upgrade-section-title">🔧 업그레이드</h2>
+      <div class="panel-content upgrade-list"></div>
+
+      <h2 class="panel-title research-section-title">🔬 연구소</h2>
+      <div class="panel-content research-list"></div>
+    </aside>
+
+    <!-- 가운데 60% : 회사 내부 화면 -->
+    <section class="office-view">
+      <div class="office-placeholder">
+        <span class="office-placeholder-icon">🏢</span>
+        <p class="office-placeholder-text">빈 사무실</p>
+        <p class="office-placeholder-subtext">직원을 채용해서 사무실을 채워보세요</p>
+      </div>
+    </section>
+
+    <!-- 오른쪽 20% : 직원 패널 + 프로젝트 패널 -->
+    <aside class="panel-right">
+      <div class="panel panel-employees">
+        <div class="panel-header">
+          <h2 class="panel-title">직원</h2>
+        </div>
+        <div class="panel-content">
+          <p class="empty-state">아직 채용된 직원이 없습니다.</p>
+        </div>
+      </div>
+
+      <div class="panel panel-projects">
+        <div class="panel-header">
+          <h2 class="panel-title">프로젝트</h2>
+        </div>
+        <div class="panel-content">
+          <p class="empty-state">진행 중인 프로젝트가 없습니다.</p>
+        </div>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- ================= Footer ================= -->
+  <footer class="footer">
+    <div class="news-ticker">
+      <span class="news-ticker-icon">📰 뉴스</span>
+      <span class="news-ticker-text">AI TYCOON에 오신 것을 환영합니다.</span>
+    </div>
+  </footer>
+
+  <script src="game.js"></script>
+</body>
+</html>
